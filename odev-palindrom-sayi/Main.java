@@ -1,15 +1,10 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-
-        int sayi, temp, tersSayi = 0, sonBasamak;
-
-        System.out.print("Bir sayi giriniz: ");
-        sayi = input.nextInt();
-
-        temp = sayi;
+    static boolean isPalindrome(int sayi) {
+        int temp = sayi;
+        int tersSayi = 0;
+        int sonBasamak;
 
         while (temp != 0) {
             sonBasamak = temp % 10;
@@ -17,7 +12,18 @@ public class Main {
             temp /= 10;
         }
 
-        if (sayi == tersSayi) {
+        return sayi == tersSayi;
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int sayi;
+
+        System.out.print("Bir sayi giriniz: ");
+        sayi = input.nextInt();
+
+        if (isPalindrome(sayi)) {
             System.out.println(sayi + " palindrom sayidir.");
         } else {
             System.out.println(sayi + " palindrom sayi degildir.");
